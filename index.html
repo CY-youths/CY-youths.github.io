@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شباب الساحل - Coast's Youths</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-grey: #1a1a1a;
+            --medium-grey: #2a2a2a;
+            --light-grey: #3a3a3a;
+            --accent-green: #4CAF50;
+            --light-green: #81C784;
+            --text-primary: #f5f5f5;
+            --text-secondary: #bdbdbd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--dark-grey);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        header {
+            background-color: var(--medium-grey);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: var(--accent-green);
+            font-size: 28px;
+            margin-right: 15px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-grey);
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-green);
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: var(--dark-grey);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-green);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-green);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            display: inline-block;
+            padding-bottom: 10px;
+            color: var(--accent-green);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-green);
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .subject-section {
+            margin-bottom: 60px;
+            background-color: var(--medium-grey);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subject-header {
+            background-color: var(--light-grey);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .subject-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: var(--dark-grey);
+            font-weight: bold;
+        }
+        
+        .subject-header h3 {
+            font-size: 24px;
+        }
+        
+        .materials-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            .materials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .materials-box {
+            background-color: var(--light-grey);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .materials-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .materials-box h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--light-green);
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .materials-list {
+            list-style: none;
+        }
+        
+        .materials-list li {
+            margin-bottom: 10px;
+            padding-right: 15px;
+            position: relative;
+        }
+        
+        .materials-list li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+        }
+        
+        .materials-list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .materials-list a:hover {
+            color: var(--light-green);
+        }
+        
+        footer {
+            background-color: var(--medium-grey);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-grey);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-green);
+            color: var(--dark-grey);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>شباب الساحل</h1>
+                <div class="logo-icon">CY</div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>مبادرة شباب الساحل</h2>
+            <p>منصة تعليمية تهدف إلى دعم طلاب الساحل في مواد البكلوريا</p>
+            <a href="#materials" class="btn">استكشف المواد التعليمية</a>
+        </div>
+    </section>
+    
+    <section id="materials" class="container">
+        <div class="section-title">
+            <h2>المواد التعليمية</h2>
+        </div>
+        
+        <!-- الرياضيات Section -->
+        <div id="math" class="subject-section">
+            <div class="subject-header">
+                <div class="subject-icon">ر</div>
+                <h3>الرياضيات</h3>
+            </div>
+            
+            <div class="materials-container">
+                <!-- مواد الدراسة -->
+                <div class="materials-box">
+                    <h4>مواد الدراسة</h4>
+                    <ul class="materials-list">
+                        <li><a href="https://github.com/coasts-youths/math/study/material1.pdf" target="_blank">الملف الأول -  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/study/material2.pdf" target="_blank">الملف الثاني -  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/study/material3.pdf" target="_blank">الملف الثالث -  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/study/material4.pdf" target="_blank">الملف الرابع -  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/study/material5.pdf" target="_blank">الملف الخامس -  </a></li>
+                    </ul>
+                </div>
+                
+                <!-- الاختبارات -->
+                <div class="materials-box">
+                    <h4>الاختبارات</h4>
+                    <ul class="materials-list">
+                        <li><a href="https://github.com/coasts-youths/math/tests/test1.pdf" target="_blank">اختبار  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/tests/test2.pdf" target="_blank">اختبار  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/tests/test3.pdf" target="_blank">اختبار  </a></li>
+                        <li><a href="https://github.com/coasts-youths/math/tests/final.pdf" target="_blank">اختبار نهائي شامل</a></li>
+                        <li><a href="https://github.com/coasts-youths/math/tests/solutions.zip" target="_blank">حلول  </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الأحياء Section -->
+        <div id="biology" class="subject-section">
+            <div class="subject-header">
+                <div class="subject-icon">أ</div>
+                <h3>الأحياء</h3>
+            </div>
+            
+            <div class="materials-container">
+                <!-- مواد الدراسة -->
+                <div class="materials-box">
+                    <h4>مواد الدراسة</h4>
+                    <ul class="materials-list">
+                        <li><a href="https://github.com/coasts-youths/biology/study/cell-biology.pdf" target="_blank">الاول </a></li>
+                        <li><a href="https://github.com/coasts-youths/biology/study/genetics.pdf" target="_blank">الثاني </a></li>
+                        <li><a href="https://github.com/coasts-youths/biology/study/human-body.pdf" target="_blank">الثالث </a></li>
+                        <li><a href="https://github.com/coasts-youths/biology/study/ecology.pdf" target="_blank">الثالث </a></li>
+                        <li><a href="https://github.com/coasts-youths/biology/study/microbiology.pdf" target="_blank">الرابع  </a></li>
+                    </ul>
+                </div>
+                
+                <!-- الاختبارات -->
+                <div class="materials-box">
+                    <h4>الاختبارات</h4>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="container" style="margin-top: 80px;">
+        <div class="section-title">
+            <h2>عن المبادرة</h2>
+        </div>
+        
+        <div style="background-color: var(--medium-grey); padding: 30px; border-radius: 10px; line-height: 1.8;">
+            <p style="margin-bottom: 20px; font-size: 18px;">
+                حكيفاضي.
+            </p>
+            <p style="font-size: 18px;">
+                يتم إعداد الملفات الان.
+            </p>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f">f</i></a>
+                <a href="#"><i class="fab fa-twitter">t</i></a>
+                <a href="#"><i class="fab fa-instagram">i</i></a>
+                <a href="#"><i class="fab fa-telegram">tg</i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
